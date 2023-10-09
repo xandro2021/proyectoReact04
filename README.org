@@ -52,4 +52,10 @@ export default {
 #+end_src
 
 * Dependencies
+** React Router Dom
+The previews projects were a single page website that according with certain logics it was decided the components that were shown to the user. Moreover, in projects that are a bit more medium or large size, it is a good practice to use a routing library in order to have several pages for a website. That way, it is going to be easier to keep a cleaner code and structure.
+There are several alternatives but for this project, it was decided to use react-router-dom
+#+begin_src bash
+npm install react-router-dom
+#+end_src
 * Deployment
