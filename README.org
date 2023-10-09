@@ -55,7 +55,101 @@ export default {
 ** React Router Dom
 The previews projects were a single page website that according with certain logics it was decided the components that were shown to the user. Moreover, in projects that are a bit more medium or large size, it is a good practice to use a routing library in order to have several pages for a website. That way, it is going to be easier to keep a cleaner code and structure.
 There are several alternatives but for this project, it was decided to use react-router-dom
+*** Installation
 #+begin_src bash
 npm install react-router-dom
+#+end_src
+*** Use Guide by Steps
+**** Part01
+***** Steps
++ Delete the default component App.jsx and its reference from main.jsx
++ Import the components from react-router-dom
+#+begin_src rjsx
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+#+end_src
++ Add the RouterProvider component to be display instead of app.jsx
+#+begin_src rjsx
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider />
+  </React.StrictMode>,
+)
+#+end_src
++ Define a router in main.jsx or in a separete file using the function createBrowserRouter
+#+begin_src jsx
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <h1>Inicio</h1>
+  }
+]);
+#+end_src
++ Add the router as a props to RouterProvider
+#+begin_src jsx
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+#+end_src
+***** Part01 Result
+#+begin_src jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <h1>Inicio</h1>
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+#+end_src
+**** Part02
+***** Steps
++ Create a Layout.jsx file so it can be share by the different pages. Useful component where you and add components like the Header and Footer
++ Import the Outlet component from the library react-router-dom in Layout.jsx so it can display the content of the other pages (A dynamic container)
++ Import the Layout file in main.jsx
++ Update the router to include the layout
+***** Part02 Result
+#+begin_src jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import NuevoCliente from './pages/NuevoCliente';
+import Index from './pages/Index';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Index />
+      },
+      {
+        path: '/clientes/nuevo',
+        element: <NuevoCliente />
+      }
+    ]
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
 #+end_src
 * Deployment
