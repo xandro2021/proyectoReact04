@@ -157,7 +157,23 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ** The Link component
 + It is a react-router-dom component used as an alternative to the html tag <a/> in order to create a more effiencient links in react
 #+begin_src jsx
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 
-<Link to="/">Clientes</Link>
+const location = useLocation();
+
+<Link
+  className={`${location.pathname === '/' ? 'text-blue-300' : 'text-white'} text-2xl block mt-2 hover:text-blue-300`}
+  to="/"
+>Clientes</Link>
+#+end_src
+** The NavLink component
++ It is an alternative to link that doesn't require the use of useLocation().pathname to identify if the link is active
++ Although there it doesn't work as intended all the time, some is better to keep using Link with the ternary logic
+#+begin_src jsx
+import { Outlet, NavLink } from 'react-router-dom';
+
+<NavLink
+  className={({isActive}) => isActive ? 'text-blue-300 text-2xl block mt-2' : 'text-white text-2xl block mt-2'}
+  to="/"
+>Clientes </NavLink>
 #+end_src
