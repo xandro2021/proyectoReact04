@@ -152,4 +152,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 #+end_src
-* Deployment
+
+* Extra notes
+** The Link component
++ It is a react-router-dom component used as an alternative to the html tag <a/> in order to create a more effiencient links in react
+#+begin_src jsx
+import { Outlet, Link } from 'react-router-dom';
+
+<Link to="/">Clientes</Link>
+#+end_src
