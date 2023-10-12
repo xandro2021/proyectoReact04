@@ -177,3 +177,7 @@ import { Outlet, NavLink } from 'react-router-dom';
   to="/"
 >Clientes </NavLink>
 #+end_src
+** Loader
++ It is an alternative to a react State component to retrieve an API's data to display it in a component
++ For this exercise it was create a loader function with keyword export in order to make use of it from the parent component
++ It is imported in main.jsx using the curly brackets due to it not being the default export.
