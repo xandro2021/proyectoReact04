@@ -169,7 +169,7 @@ const location = useLocation();
 ** The NavLink component
 + It is an alternative to link that doesn't require the use of useLocation().pathname to identify if the link is active
 + Although there it doesn't work as intended all the time, some is better to keep using Link with the ternary logic
-#+begin_src jsx
+#+begin_src js
 import { Outlet, NavLink } from 'react-router-dom';
 
 <NavLink
@@ -186,6 +186,27 @@ import { Outlet, NavLink } from 'react-router-dom';
 + It is React Router Dom hook used to send data through out a form component called Form.
 + It is an alternative to how it was managed the form in previews projects
 + To use it is necessary to follow similar steps used in Loader
++ To retrieve the data from the inputs is necessary to extract it from the default parameter {request} and use the function formData.
++ Because we are dealing with a request is necessary the action function is async
+#+begin_src js
+export async function action({ request }) {
+
+  const formData = await request.formData();
+
+  // Extract the input information with the name empresa
+  console.log(formData.get('empresa'));
+
+  // Extract all the inputs information
+  console.log([...formData]);
+
+  // Extract all the inputs information in a single object
+  const datos = Object.fromEntries(formData);
+  console.log(datos);
+
+  return null;
+}
+
+#+end_src
 ** useNavigate
 + It is another React Router Dom hook that is used to navigate using keys or after fulfill a condition
 + To use it just creat an instance of useNavigate and call it using the route as a parameter or use -1 to address to the previews visited link
