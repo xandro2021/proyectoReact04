@@ -177,11 +177,15 @@ import { Outlet, NavLink } from 'react-router-dom';
   to="/"
 >Clientes </NavLink>
 #+end_src
-** Loader
+** Loader (GET)
 + It is an alternative to a react State component to retrieve an API's data to display it in a component
 + For this exercise it was create a loader function with keyword export in order to make use of it from the parent component
 + It is imported in main.jsx using the curly brackets due to it not being the default export.
 + Finally, it is imported in the component that contains the loader function the component useLoaderData from react-router-dom. By doing that, the information send by the loader is going to be available
+** Actions (POST)
++ It is React Router Dom hook used to send data through out a form component called Form.
++ It is an alternative to how it was managed the form in previews projects
++ To use it is necessary to follow similar steps used in Loader
 ** useNavigate
 + It is another React Router Dom hook that is used to navigate using keys or after fulfill a condition
 + To use it just creat an instance of useNavigate and call it using the route as a parameter or use -1 to address to the previews visited link
