@@ -207,6 +207,10 @@ export async function action({ request }) {
 }
 
 #+end_src
+** errorElement
++ It is a React Router DOM component to create a custom error
++ Similar to loader and action, it is necesary to add it an prop for the index component in main.jsx
++ An example could be found in the file ErrorPage.jsx in components/
 ** useNavigate
 + It is another React Router Dom hook that is used to navigate using keys or after fulfill a condition
 + To use it just creat an instance of useNavigate and call it using the route as a parameter or use -1 to address to the previews visited link
