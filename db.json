@@ -8,11 +8,12 @@
       "empresa": "Codigo Con Juan"
     },
     {
-      "id": 2,
-      "nombre": "Karen",
-      "telefono": 138198313,
+      "nombre": "Karencita",
+      "empresa": "Gladius Corp",
       "email": "karen@mail.com",
-      "empresa": "Codigo Con Juan"
+      "telefono": "138198313",
+      "notas": "Requiere un sistema POS",
+      "id": 2
     },
     {
       "id": 3,
