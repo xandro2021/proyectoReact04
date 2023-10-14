@@ -34,6 +34,14 @@
       "telefono": 1398198938,
       "email": "pedro@mail.com",
       "empresa": "Codigo Con Juan"
+    },
+    {
+      "nombre": "Marcelo React",
+      "empresa": "Folkan Inc",
+      "email": "marcelo@folcan.com",
+      "telefono": "6763478",
+      "notas": "Proyecto Ecommerce",
+      "id": 6
     }
   ]
 }
