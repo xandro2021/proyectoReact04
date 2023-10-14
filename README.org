@@ -225,8 +225,14 @@ npm i --location=global json-server
 #+end_src
 *** Usage
 + Create a file named db.json
-+ Keep running the server with the following command
++ Start running the server with the following command
 + You can change the default port by adding --port
 #+begin_src bash
 json-server --watch db.json
 #+end_src
+
+** .env
++ It is file to define some development variables like user and the API link
++ All those development variables requires the name start with VITE
++ For this example it was create the variables VITE_API_URL = ...  and VITE_DB_USUARIO = root
++ It is posible to access the date in those variables with console.log(import.meta.env);
