@@ -8,11 +8,19 @@ export async function action({ request }) {
 
   const datos = Object.fromEntries(formData);
 
+  const email = formData.get('email');
+
   // Validacion del Formulario
   const errores = [];
 
   if (Object.values(datos).includes('')) {
     errores.push('Todos los campos son obligatorios');
+  }
+
+  let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (!regex.test(email)) {
+    errores.push('El email no es valido');
   }
 
   // Retornar datos si hay errores
@@ -27,8 +35,6 @@ const NuevoCliente = () => {
 
   const errores = useActionData();
   const navigate = useNavigate();
-
-  console.log(errores);
 
   return (
     <>
@@ -49,6 +55,7 @@ const NuevoCliente = () => {
 
         <Form
           method="post"
+          noValidate
         >
           <Formulario />
 
