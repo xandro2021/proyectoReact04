@@ -216,3 +216,17 @@ export async function action({ request }) {
     onClick={() => navigate('/')}
 >Volver</button>
 #+end_src
+
+** JSON-Server
++ It is an npm package to simulate a REST API for front-end developers
+*** Installation
+#+begin_src bash
+npm i --location=global json-server
+#+end_src
+*** Usage
++ Create a file named db.json
++ Keep running the server with the following command
++ You can change the default port by adding --port
+#+begin_src bash
+json-server --watch db.json
+#+end_src
